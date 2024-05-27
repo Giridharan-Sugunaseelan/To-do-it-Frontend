@@ -19,10 +19,11 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/todolist/login" Component={LoginComponent} />
-        <Route path="/todolist/signup" Component={SignupComponent} />
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" Component={LoginComponent} />
+        <Route path="/signup" Component={SignupComponent} />
         <Route
-          path="/todolist/:projectTitle"
+          path="/:projectTitle"
           element={
             <AuthenticatedRoutes>
               <TodoContainer />
@@ -30,15 +31,15 @@ function App() {
           }
         />
         <Route
-          path="/todolist/profile"
+          path="/profile"
           element={
             <AuthenticatedRoutes>
               <Profile />
             </AuthenticatedRoutes>
           }
         />
-        <Route path="/todolist/forgotPassword" Component={ForgotPassword} />
-        <Route path="/todolist/resetPassword" Component={ForgotResetPassword} />
+        <Route path="/forgotPassword" Component={ForgotPassword} />
+        <Route path="/resetPassword" Component={ForgotResetPassword} />
       </Routes>
     </>
   );
