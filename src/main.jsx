@@ -8,7 +8,7 @@ import store from "./redux/App/store.js";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter basename="/todolist">
+    <BrowserRouter>
       <Provider store={store}>
         <App />
       </Provider>
