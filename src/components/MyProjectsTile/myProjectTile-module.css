@@ -1,0 +1,34 @@
+.project {
+    background-color: #262626;
+    color: #D0D0D1;
+}
+
+.myProjectTile {
+    background-color: #262626;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    color: #D0D0D1;
+}
+
+.myProjectTile .projectTitleButton {
+    background-color: transparent;
+}
+
+.myProjectTile:hover {
+    background-color: #332F2B;
+}
+
+.projectTiles .projectTilesButton:hover {
+    background-color: #332F2B;
+}
+
+.projectTiles .projectTilesButton {
+    display: flex;
+    width: 100%;
+    border-radius: 0;
+    background-color: #262626;
+    justify-content: flex-start;
+}

@@ -1,0 +1,97 @@
+.projectContainer {
+    background-color: #1E1E1E;
+    color: #FEFEFF;
+}
+
+.projectTitle {
+    display: flex;
+    align-items: center;
+    background-color: #1E1E1E;
+    color: #FEFEFF;
+}
+
+.projectTitle>h1 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.projectTitle .addTask {
+    background-color: #1E1E1E;
+    margin-left: 10px;
+    transition: border 0.5s ease-in;
+}
+
+
+.projectTitle .addTask:hover {
+    background-color: #1E1E1E;
+    border: 1px solid #de4d4b;
+    border-radius: 0px;
+}
+
+.addProjectSection {
+    background-color: #1E1E1E;
+    width: 100%;
+    text-align: left;
+    padding: 5px;
+    transition: border 0.3s ease-out;
+}
+
+.projectContainer .addProjectSection:hover {
+    background-color: #1E1E1E;
+    border: 1px solid #de4d4b;
+    border-radius: 0;
+}
+
+ul {
+    padding: 0;
+}
+
+.addTaskContainer {
+    width: auto;
+    margin: 10px;
+}
+
+.date {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+}
+
+@media (max-width: 1220px) {
+    .projectTitle>h1 {
+        font-size: 25px;
+    }
+
+    .date {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .projectTitle {
+        font-size: 20px;
+    }
+
+    .projectTitle>h1 {
+        margin: 0;
+    }
+
+    .date {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 500px) {
+    .projectTitle {
+        font-size: 17px;
+        margin: 0;
+    }
+
+    .date {
+        font-size: 15px;
+    }
+
+    .projectTitle>h1 {
+        margin: 0;
+    }
+}

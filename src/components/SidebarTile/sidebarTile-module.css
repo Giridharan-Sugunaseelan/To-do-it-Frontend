@@ -1,0 +1,14 @@
+.buttonTitle .sideBarTileButton {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    border-radius: 0px;
+    background-color: #262626;
+    width: 100%
+}
+
+.buttonTitle .sideBarTileButton:hover {
+    background-color: #332F2B;
+}

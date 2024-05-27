@@ -1,0 +1,102 @@
+.infoContainer {
+    width: 100%;
+    background-color: #1E1E1E;
+    color: #FEFEFF;
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+    padding: 20px;
+    border: 1px solid grey;
+    border-radius: 20px;
+}
+
+.dateContainer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: grey;
+    margin-left: 10px;
+}
+
+.dueDateLabel {
+    padding-top: 10px;
+}
+
+input {
+    background-color: #1E1E1E;
+    color: #FEFEFF;
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid grey;
+    margin-bottom: 10px;
+    outline: none;
+    transition: border-bottom 0.3s ease-in;
+}
+
+input:focus {
+    border-bottom: 1px solid #DE4D4B;
+}
+
+input[type="date"] {
+    color: grey;
+    border: 1px solid grey;
+    padding: 2px;
+    margin: 0px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(50%) sepia(5%) saturate(200%) hue-rotate(220deg);
+}
+
+.taskInfoContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.taskParameters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.addTaskbuttons {
+    display: flex;
+    gap: 10px;
+}
+
+.addTask {
+    background-color: #DE4D4B;
+}
+
+.addTask:hover {
+    background-color: #E26464;
+}
+
+@media (max-width: 1100px) {
+    .addTaskbuttons>.addTask {
+        font-size: 15px;
+    }
+
+    .addTaskbuttons>.cancel {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 800px) {
+    .taskParameters {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .addTaskbuttons {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+}

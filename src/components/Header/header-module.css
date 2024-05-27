@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    background-color: #1E1E1E;
+    color: #E5E4E5;
+    border-bottom: 2px solid grey;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.header img {
+    width: 40px;
+    height: 40px;
+}
+
+.navButton {
+    border-radius: 5px;
+    padding: 2px 5px;
+    margin: 0;
+    background-color: #1E1E1E;
+    color: #E5E4E5;
+    font-size: 1em;
+}

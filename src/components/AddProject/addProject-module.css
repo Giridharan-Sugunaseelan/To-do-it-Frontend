@@ -1,0 +1,62 @@
+.addProjectContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    background-color: #262626;
+}
+
+.addProjectContainer input {
+    width: 70%;
+    background-color: #262626;
+}
+
+.addProjectContainer .addProjectbuttonContainer {
+    display: flex;
+    background-color: #262626;
+}
+
+.addProjectContainer .addProjectbuttonContainer .addProjectButton {
+    background-color: transparent;
+    padding: 18px;
+}
+
+.addProjectContainer .addProjectbuttonContainer .addProjectButton:focus {
+    outline: none;
+}
+
+@media(max-width: 1440px) {
+    .addProjectContainer input {
+        width: 60%;
+    }
+}
+
+@media(max-width: 1080px) {
+    .addProjectContainer {
+        flex-direction: column;
+    }
+
+    .addProjectContainer input {
+        width: 90%;
+    }
+
+    .addProjectContainer .addProjectbuttonContainer {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .addProjectContainer .addProjectbuttonContainer .addProjectButton {
+        border: 1px solid white;
+        width: 45%;
+        padding: 1px;
+        background-color: #DE4D4B;
+    }
+
+    .addProjectContainer .addProjectbuttonContainer .cancel {
+        border: 1px solid white;
+        width: 45%;
+        padding: 1px;
+        background-color: transparent;
+    }
+}

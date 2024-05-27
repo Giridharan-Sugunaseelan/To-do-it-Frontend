@@ -1,0 +1,43 @@
+.sectionContainer {
+    background-color: #1E1E1E;
+    color: #FEFEFF;
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+    margin-top: 25px;
+}
+
+ul {
+    list-style: none;
+}
+
+.title {
+    font-weight: 100;
+}
+
+.sectionTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sectionTitle .sectionTitleButton {
+    background-color: #1E1E1E;
+    font-size: 25;
+    color: #6b6e6e;
+    border-radius: 0;
+    transition: border 0.5s ease-in;
+}
+
+.sectionTitle .sectionTitleButton:hover {
+    color: #989b9b;
+    border-radius: 0px;
+    outline: none;
+}
+
+.actionButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
+}

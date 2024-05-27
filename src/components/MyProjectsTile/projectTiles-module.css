@@ -1,0 +1,33 @@
+.projectTile {
+    display: flex;
+    width: 100%;
+}
+
+.projectTileButtonContainer {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.projectTileButtonContainer:hover {
+    background-color: transparent;
+}
+
+.projectTile:hover {
+    display: flex;
+    background-color: #332F2B;
+}
+
+.projectTileButtonContainer>button:hover {
+    background-color: transparent;
+}
+
+.projectTileButtonContainer>button {
+    background-color: transparent;
+}
+
+@media(max-width: 1075px) {
+    .projectTileButtonContainer {
+        width: 10%;
+    }
+}

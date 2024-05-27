@@ -1,0 +1,119 @@
+.signupContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1E1E1E;
+    color: #E5E4E5;
+}
+
+.signupSection {
+    width: 45%;
+    height: auto;
+    border: 1px solid #4e4e4e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    gap: 10px;
+    font-size: 25px;
+}
+
+.logo img {
+    width: 45px;
+    height: 45px;
+    border-radius: 5px;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 50%;
+    margin-top: 50px;
+    gap: 15px;
+    font-size: 20px;
+}
+
+.signupButtonContainer {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.signupButtonContainer .signupButton {
+    width: 100%;
+    background-color: #DE4D4B;
+}
+
+.signupButtonContainer .signupButton:hover {
+    width: 100%;
+    background-color: #E26464;
+}
+
+a {
+    color: #DE4D4B;
+}
+
+a:hover {
+    color: #E26464;
+    text-decoration: none;
+}
+
+.errorMessage {
+    color: red;
+}
+
+@media(max-width: 1500px) {
+    .signupSection {
+        width: 50%;
+    }
+}
+
+@media(max-width: 1200px) {
+    .signupSection {
+        width: 60%;
+    }
+}
+
+@media(max-width: 1200px) {
+    .signupSection {
+        width: 65%;
+    }
+}
+
+@media(max-width: 700px) {
+    .signupSection {
+        width: 70%;
+    }
+}
+
+@media(max-width: 500px) {
+    .signupSection {
+        width: 80%;
+    }
+
+    .signupSection .signupButton {
+        font-size: 15px;
+        padding: 8px;
+    }
+
+    .forgotPassword {
+        font-size: 15px;
+    }
+
+    .inputContainer {
+        font-size: 15px;
+    }
+}
+
+@media(max-width: 400px) {
+    .signupSection {
+        width: 90%;
+    }
+}

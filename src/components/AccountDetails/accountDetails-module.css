@@ -1,0 +1,46 @@
+.accountDetails {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    background-color: #262626;
+    color: #D0D0D1;
+    cursor: pointer;
+}
+
+.detailsContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.accountDetails img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.accountDetails p {
+    margin: 0;
+}
+
+.accountDetails:hover {
+    background-color: #332F2B;
+}
+
+.logoutButtonContainer {
+    justify-content: flex-end;
+}
+
+.logoutButton {
+    background-color: transparent;
+}
+
+@media(max-width: 950px) {
+    .accountDetails img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+}

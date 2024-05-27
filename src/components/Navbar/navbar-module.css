@@ -1,0 +1,43 @@
+.nav {
+    width: 30%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #262626;
+}
+
+.navbar {
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+}
+
+@media(max-width: 800px) {
+    .nav {
+        width: 35%;
+    }
+}
+
+@media(max-width: 650px) {
+    .nav {
+        width: 40%;
+    }
+}
+
+@media(max-width: 550px) {
+    .nav {
+        width: 50%;
+    }
+}
+
+@media(max-width: 500px) {
+    .nav {
+        width: 55%;
+    }
+}
+
+@media(max-width: 400px) {
+    .nav {
+        width: 70%;
+    }
+}
