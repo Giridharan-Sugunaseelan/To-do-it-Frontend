@@ -1,10 +1,12 @@
 import axios from "axios";
 
-const TASK_BASE_URL = "http://localhost:8080/todoapp/task";
+const TASK_BASE_URL = "https://to-do-it-i8lc.onrender.com/todoapp/task";
 
-const PROJECT_TASK_BASE_URL = "http://localhost:8080/todoapp/projectTask";
+const PROJECT_TASK_BASE_URL =
+  "https://to-do-it-i8lc.onrender.com/todoapp/projectTask";
 
-const SECTION_TASK_BASE_URL = "http://localhost:8080/todoapp/sectionTask";
+const SECTION_TASK_BASE_URL =
+  "https://to-do-it-i8lc.onrender.com/todoapp/sectionTask";
 
 export function updateTaskStatus(id) {
   return axios.put(`${TASK_BASE_URL}/${id}`);

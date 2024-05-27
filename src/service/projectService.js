@@ -1,6 +1,6 @@
 import axios from "axios";
 import { getToken } from "./authservice";
-const BASE_URL = "http://localhost:8080/todoapp/projects";
+const BASE_URL = "https://to-do-it-i8lc.onrender.com/todoapp/projects";
 
 axios.interceptors.request.use(
   function (config) {

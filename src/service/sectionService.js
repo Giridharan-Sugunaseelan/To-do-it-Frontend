@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8080/todoapp/section";
+const BASE_URL = "https://to-do-it-i8lc.onrender.com/todoapp/section";
 
 export function addsection(sectionObject) {
   return axios.post(`${BASE_URL}`, sectionObject);
