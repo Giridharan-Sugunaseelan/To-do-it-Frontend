@@ -14,7 +14,7 @@ function App() {
     if (isAuth) {
       return children;
     }
-    return <Navigate to="/todolist/login" />;
+    return <Navigate to="/login" />;
   }
   return (
     <>

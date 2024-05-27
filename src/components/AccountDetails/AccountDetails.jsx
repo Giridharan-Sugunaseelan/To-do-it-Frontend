@@ -13,14 +13,14 @@ function AccountDetails() {
   }, []);
 
   function profile() {
-    navigator("/todolist/profile");
+    navigator("/profile");
   }
 
   function logout(e) {
     e.stopPropagation();
     localStorage.clear();
     sessionStorage.clear();
-    navigator("/todolist/login");
+    navigator("/login");
   }
   return (
     <>

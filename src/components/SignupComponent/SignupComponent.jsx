@@ -58,7 +58,7 @@ function SignupComponent() {
       register(user)
         .then((response) => {
           console.log(response);
-          navigator("/todolist/login");
+          navigator("/login");
         })
         .catch((error) => setErrorMessage(error.message));
     }
@@ -112,7 +112,7 @@ function SignupComponent() {
           </form>
           <p>
             Already have an account?
-            <a href="/todolist/login"> Log in</a>
+            <a href="/login"> Log in</a>
           </p>
         </div>
       </div>

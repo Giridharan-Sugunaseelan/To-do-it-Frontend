@@ -22,7 +22,7 @@ function ForgotPassword() {
   function handleCancel() {
     setEmail("");
     setErrorMessage("");
-    navigator("/todolist/login");
+    navigator("/login");
   }
 
   function handleSubmit(e) {
@@ -32,7 +32,7 @@ function ForgotPassword() {
         .then((response) => {
           setErrorMessage(response.data);
           setTimeout(() => {
-            navigator("/todolist/login");
+            navigator("/login");
           }, 3000);
         })
         .catch((error) => setErrorMessage(error.response.data.message));

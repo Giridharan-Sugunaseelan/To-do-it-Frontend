@@ -26,7 +26,7 @@ function Header({ isOpen }) {
 
   return (
     <>
-      <div className="header" onClick={() => navigator("/todolist/today")}>
+      <div className="header" onClick={() => navigator("/today")}>
         {isMobile && (
           <ActionIconButton
             iconClass="fa-solid fa-bars"

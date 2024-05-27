@@ -38,7 +38,7 @@ function LoginComponent() {
         const token = response.data.tokenType + response.data.token;
         saveLoggedInUser(email);
         setToken(token);
-        navigator("/todolist/today");
+        navigator("/today");
       })
       .catch((error) => {
         setErrorMessage(error.response.data.message);
@@ -67,7 +67,7 @@ function LoginComponent() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <a className="forgotPassword" href="/todolist/forgotPassword">
+            <a className="forgotPassword" href="/forgotPassword">
               Forgot Password
             </a>
             {errorMessage && <p className="errorMessage">{errorMessage}</p>}
@@ -78,7 +78,7 @@ function LoginComponent() {
             </div>
           </form>
           <p>
-            Don't have an account? <a href="/todolist/signup">Sign up</a>
+            Don't have an account? <a href="/signup">Sign up</a>
           </p>
         </div>
       </div>

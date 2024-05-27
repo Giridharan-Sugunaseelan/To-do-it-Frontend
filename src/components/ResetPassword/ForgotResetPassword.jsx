@@ -29,7 +29,7 @@ function ForgotResetPassword() {
     setNewPassword("");
     setConfirmPassword("");
     setErrorMessage("");
-    navigator("/todolist/login");
+    navigator("/login");
   }
 
   function handleSubmit(e) {
@@ -42,7 +42,7 @@ function ForgotResetPassword() {
         .then((response) => {
           setErrorMessage(response.data);
           setTimeout(() => {
-            navigator("/todolist/login");
+            navigator("/login");
           }, 3000);
         })
         .catch((error) => setErrorMessage(error.response.data.message));

@@ -17,7 +17,7 @@ function SideBarTile({ iconClassName, buttonName }) {
     // else if (buttonName === "upcoming") {
     //   dispatcher(getUpcomingTasks());
     // }
-    navigator(`/todolist/${buttonName}`);
+    navigator(`/${buttonName}`);
   }
   return (
     <>

@@ -14,7 +14,7 @@ function ProjectTiles({ key, projectTitle, projectId }) {
 
   function handleClick(id, title) {
     dispatcher(fetchProject(id));
-    navigator(`/todolist/${title}`);
+    navigator(`/${title}`);
   }
 
   function editProject() {
@@ -28,7 +28,7 @@ function ProjectTiles({ key, projectTitle, projectId }) {
 
   function handleDeleteProject(id) {
     dispatcher(deleteProject(id));
-    navigator("/todolist/today");
+    navigator("/today");
   }
 
   let project = {
