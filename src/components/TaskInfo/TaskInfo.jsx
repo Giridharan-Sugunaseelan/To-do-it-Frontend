@@ -80,9 +80,7 @@ function TaskInfo({
   }
 
   function updateTask() {
-    if (validate()) {
-      editEventHandlers.dispatch;
-    }
+    editEventHandlers.dispatch;
   }
 
   return (
