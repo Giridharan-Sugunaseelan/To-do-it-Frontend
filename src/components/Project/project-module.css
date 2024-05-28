@@ -14,12 +14,16 @@
     font-family: "Roboto", sans-serif;
     font-weight: 100;
     font-style: italic;
+    margin: 0;
 }
 
 .projectTitle .addTask {
     background-color: #1E1E1E;
     margin-left: 10px;
     transition: border 0.5s ease-in;
+    padding: 0;
+    margin-left: 25px;
+
 }
 
 
@@ -68,30 +72,52 @@ ul {
 }
 
 @media (max-width: 900px) {
-    .projectTitle {
-        font-size: 20px;
-    }
 
     .projectTitle>h1 {
-        margin: 0;
+        font-size: 22px;
     }
 
     .date {
         font-size: 17px;
     }
+
+    .projectTitle .addTask {
+        font-size: 15px;
+        margin-left: 12px;
+    }
 }
 
-@media (max-width: 500px) {
-    .projectTitle {
-        font-size: 17px;
-        margin: 0;
-    }
+@media (max-width: 600px) {
 
     .date {
         font-size: 15px;
     }
 
     .projectTitle>h1 {
+        font-size: 20px;
         margin: 0;
+    }
+
+    .projectTitle .addTask {
+        font-size: 12px;
+        margin-left: 10px;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .date {
+        font-size: 12px;
+    }
+
+    .projectTitle>h1 {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .projectTitle .addTask {
+        font-size: 12px;
+        margin-left: 10px;
     }
 }

@@ -79,6 +79,12 @@ function TaskInfo({
     }
   }
 
+  function updateTask() {
+    if (validate()) {
+      editEventHandlers.dispatch;
+    }
+  }
+
   return (
     <>
       <div className="infoContainer">
@@ -125,7 +131,7 @@ function TaskInfo({
                 <ActionButton
                   buttonName="Update Task"
                   buttonClass="addTask"
-                  eventHandler={editEventHandlers.dispatch}
+                  eventHandler={updateTask}
                 />
               ) : (
                 <ActionButton
