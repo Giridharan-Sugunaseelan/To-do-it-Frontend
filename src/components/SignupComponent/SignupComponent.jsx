@@ -47,7 +47,7 @@ function SignupComponent() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (validation(e)) {
+    if (validation) {
       const user = {
         id: null,
         firstName: firstName,
