@@ -76,3 +76,17 @@
         width: 90%;
     }
 }
+
+@media (max-width: 400px) {
+    .todoContainer {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .todoListContainer {
+        width: 100%;
+        padding: 5px;
+    }
+}
