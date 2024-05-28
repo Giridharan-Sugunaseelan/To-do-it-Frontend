@@ -50,16 +50,6 @@
     /* Hides the scrollbar in IE & Edge */
 }
 
-@media (max-width: 650px) {
-    .todoListContainer {
-        padding: 25px 25px 50px 50px;
-        color: #E5E4E5;
-        width: 75%;
-        display: flex;
-        justify-content: center;
-        overflow-y: auto;
-    }
-}
 
 @media (max-width: 900px) {
     .todoContainer {
@@ -70,17 +60,11 @@
     }
 
     .todoListContainer {
-        padding: 25px 50px 50px 50px;
-        color: #E5E4E5;
-        width: 80%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow-y: auto;
+        width: 90%;
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .todoContainer {
         display: flex;
         width: 100%;
@@ -89,12 +73,6 @@
     }
 
     .todoListContainer {
-        padding: 15px 15px 15px 15px;
-        color: #E5E4E5;
         width: 90%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow-y: auto;
     }
 }

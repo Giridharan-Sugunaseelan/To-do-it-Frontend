@@ -1,7 +1,6 @@
 import React from "react";
 import Task from "../Task/Task";
 import "./section-module.css";
-import AddButton from "../AddButton/AddButton";
 import formatDate from "../../util/formatDate";
 import { groupByDate } from "../../util/TaskGroupper";
 import {

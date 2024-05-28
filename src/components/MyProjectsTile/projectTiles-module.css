@@ -1,20 +1,35 @@
 .projectTile {
     display: flex;
     width: 100%;
+    align-items: center;
 }
 
 .projectTileButtonContainer {
     display: flex;
-    width: 100%;
     justify-content: flex-end;
+    flex-shrink: 0;
 }
 
-.projectTileButtonContainer:hover {
+.projectTileButtonContainer>button {
     background-color: transparent;
+    margin-left: 10px;
+}
+
+.projectTilesButton {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+    text-align: left;
+    padding: 10px;
+    border: none;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
 }
 
 .projectTile:hover {
-    display: flex;
     background-color: #332F2B;
 }
 
@@ -22,12 +37,8 @@
     background-color: transparent;
 }
 
-.projectTileButtonContainer>button {
-    background-color: transparent;
-}
-
 @media(max-width: 1075px) {
     .projectTileButtonContainer {
-        width: 10%;
+        width: auto;
     }
 }
