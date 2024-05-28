@@ -65,3 +65,22 @@ html {
     height: 100vh;
     background-color: #262626;
 }
+
+@media(max-width: 400px) {
+    .greet {
+        font-size: 18px;
+    }
+
+    .profileContainerTitle {
+        font-size: 16px;
+    }
+
+    .accountDetailsContainer>p {
+        font-size: 14px;
+        margin: 5px;
+    }
+
+    .profileContainer {
+        padding: 10px;
+    }
+}
