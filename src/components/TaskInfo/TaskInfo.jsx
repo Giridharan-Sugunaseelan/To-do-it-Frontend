@@ -80,7 +80,7 @@ function TaskInfo({
 
   function updateTask() {
     editEventHandlers.dispatch;
-    editEventHandlers.editHandler;
+    editEventHandlers.editHandler();
   }
 
   return (
