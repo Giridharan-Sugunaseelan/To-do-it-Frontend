@@ -2,6 +2,8 @@ import axios from "axios";
 
 const BASE_URL = "https://to-do-it-i8lc.onrender.com/todoapp/auth";
 
+// const BASE_URL = "http://localhost:8080/todoapp/auth";
+
 export function login(loginObject) {
   return axios.post(`${BASE_URL}/login`, loginObject);
 }

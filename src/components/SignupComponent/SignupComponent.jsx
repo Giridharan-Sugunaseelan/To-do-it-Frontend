@@ -47,7 +47,7 @@ function SignupComponent() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (validation) {
+    if (validation(e)) {
       const user = {
         id: null,
         firstName: firstName,
@@ -60,7 +60,9 @@ function SignupComponent() {
           console.log(response);
           navigator("/login");
         })
-        .catch((error) => setErrorMessage(error.message));
+        .catch((error) => {
+          setErrorMessage(error.response.data.message);
+        });
     }
   }
 
