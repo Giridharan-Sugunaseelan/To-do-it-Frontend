@@ -73,7 +73,7 @@ ul {
 
 @media (max-width: 400px) {
     .sectionTitle>h2 {
-        font-size: 14px;
+        font-size: 16px;
         margin: 0;
     }
 }
