@@ -41,7 +41,7 @@ function AddProject({ toggleHandler, project }) {
 
   return (
     <>
-      <div className="addProjectContainer">
+      <div className="addProjectContainer" onClick={(e) => e.stopPropagation()}>
         <input
           type="text"
           placeholder="Project Title"

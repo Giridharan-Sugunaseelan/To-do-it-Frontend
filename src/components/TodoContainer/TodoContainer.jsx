@@ -1,10 +1,11 @@
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Header from "../Header/Header";
 import SideBar from "../SideBar/SideBar";
-import "./todoContainer-module.css";
 import Project from "../Project/Project";
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
+import "./todoContainer-module.css";
+
 function TodoContainer() {
   const { projectTitle } = useParams();
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +31,7 @@ function TodoContainer() {
       <Header isOpen={handleIsOpen} />
       <div className="todoContainer">
         {isMobile ? (
-          <div className="navBar">
+          <div className={`navBar ${isOpen ? "open" : ""}`}>
             {isOpen && <Navbar isOpen={handleIsOpen} />}
           </div>
         ) : (
@@ -38,10 +39,9 @@ function TodoContainer() {
             <SideBar />
           </div>
         )}
-
         <div className="todoListContainer">
           <div className="todoList">
-            <Project projectTitle={projectTitle ? projectTitle : ""} />
+            <Project projectTitle={projectTitle || ""} />
           </div>
         </div>
       </div>

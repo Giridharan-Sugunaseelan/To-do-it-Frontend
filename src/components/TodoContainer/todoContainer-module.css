@@ -16,6 +16,8 @@
     width: 20%;
     height: 100vh;
     background-color: #262626;
+    z-index: 500;
+    /* Ensure sidebar is above other content but below navbar */
 }
 
 .navBar {
@@ -25,7 +27,17 @@
     width: 100%;
     height: 100vh;
     z-index: 1000;
-    padding: 0
+    /* Ensure navbar is on top */
+    background-color: #262626;
+    /* Add background color to navbar */
+    padding: 0;
+    display: none;
+    /* Hide navbar by default */
+}
+
+.navBar.open {
+    display: block;
+    /* Show navbar when open */
 }
 
 .todoList {
@@ -33,9 +45,9 @@
     height: 100%;
     overflow-y: auto;
     scrollbar-width: none;
-    /*Hides the scrollbar in Firefox*/
+    /* Hides the scrollbar in Firefox */
     -ms-overflow-style: none;
-    /*Hides the scrollbar in IE & Edge*/
+    /* Hides the scrollbar in IE & Edge */
 }
 
 @media (max-width: 650px) {
