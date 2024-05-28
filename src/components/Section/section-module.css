@@ -44,29 +44,36 @@ ul {
 }
 
 @media (max-width: 1220px) {
-    .title {
+    .sectionTitle>h2 {
         font-size: 22px;
         margin: 0;
     }
 }
 
 @media (max-width: 900px) {
-    .title {
+    .sectionTitle>h2 {
         font-size: 20px;
         margin: 0;
     }
 }
 
 @media (max-width: 600px) {
-    .title {
+    .sectionTitle>h2 {
         font-size: 18px;
         margin: 0;
     }
 }
 
 @media (max-width: 450px) {
-    .title {
+    .sectionTitle>h2 {
         font-size: 16px;
+        margin: 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .sectionTitle>h2 {
+        font-size: 14px;
         margin: 0;
     }
 }
