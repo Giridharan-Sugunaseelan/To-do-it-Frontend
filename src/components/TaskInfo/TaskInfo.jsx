@@ -37,7 +37,6 @@ function TaskInfo({
     setDescription("");
     setDueDate("");
     cancelEventHandler();
-    console.log("From Cancel method");
   }
   function handleAddProjectTask() {
     const taskToAdd = {
@@ -81,6 +80,7 @@ function TaskInfo({
 
   function updateTask() {
     editEventHandlers.dispatch;
+    cancelEventHandler();
   }
 
   return (
