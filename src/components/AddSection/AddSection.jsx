@@ -1,8 +1,9 @@
 import React from "react";
 import "./addSection-module.css";
 import ActionButton from "../Action Button/ActionButton";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addSection } from "../../redux/Features/section/Actions/sectionActions";
+import Loading from "../Loading/Loading";
 function AddSection({
   projectId,
   toggleHandler,
@@ -11,6 +12,8 @@ function AddSection({
   updateHandler,
 }) {
   const [sectionTitle, setSectionTitle] = React.useState("");
+
+  const isLoading = useSelector((state) => state.loading.isLoading);
 
   const dispatcher = useDispatch();
 
@@ -30,6 +33,10 @@ function AddSection({
   function handleCancel() {
     setSectionTitle("");
     toggleHandler();
+  }
+
+  if (isLoading) {
+    return <Loading />;
   }
 
   return (

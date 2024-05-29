@@ -5,22 +5,43 @@ import {
   editsection,
 } from "../../../../service/sectionService";
 
+import { startLoading, endLoading } from "../../Loading/loadingSlice";
+
 export const addSection = createAsyncThunk(
   "section/addSection",
-  (sectionObject) => {
-    return addsection(sectionObject).then((response) => response.data);
+  async (sectionObject, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await addsection(sectionObject);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
   }
 );
 
 export const updateSection = createAsyncThunk(
   "section/updateSection",
-  (param) => {
-    return editsection(param.id, param.sectionObject).then(
-      (response) => response.data
-    );
+  async (param, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await editsection(param.id, param.sectionObject);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
   }
 );
 
-export const deleteSection = createAsyncThunk("section/deleteSection", (id) => {
-  return deletesection(id).then((response) => response.data);
-});
+export const deleteSection = createAsyncThunk(
+  "section/deleteSection",
+  async (id, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await deletesection(id);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
+  }
+);

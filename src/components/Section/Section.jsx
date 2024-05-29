@@ -15,8 +15,11 @@ import {
   deleteSection,
   updateSection,
 } from "../../redux/Features/section/Actions/sectionActions";
+import Loading from "../Loading/Loading";
 function Section({ section }) {
   const sections = useSelector((state) => state.project.sections);
+
+  const isLoading = useSelector((state) => state.loading.isLoading);
 
   const currentSection = sections?.find(
     (sec) => sec?.section_id === section?.section_id
@@ -71,6 +74,10 @@ function Section({ section }) {
 
   function handleDelete() {
     dispatcher(deleteSection(currentSection?.section_id));
+  }
+
+  if (isLoading) {
+    return <Loading />;
   }
 
   return (

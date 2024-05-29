@@ -7,6 +7,7 @@ import { isUserLoggedIn } from "./service/authservice";
 import Profile from "./components/Profile/Profile";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import ForgotResetPassword from "./components/ResetPassword/ForgotResetPassword";
+import Loading from "./components/Loading/Loading";
 // import ProfilePictureModal from "./components/Profile/ProfilePictureModal/ProfilePictureModal";
 function App() {
   function AuthenticatedRoutes({ children }) {
@@ -41,6 +42,7 @@ function App() {
         <Route path="/forgotPassword" Component={ForgotPassword} />
         <Route path="/resetPassword" Component={ForgotResetPassword} />
       </Routes>
+      {/* <Loading /> */}
     </>
   );
 }

@@ -1,11 +1,12 @@
 import React from "react";
 import ActionButton from "../Action Button/ActionButton";
 import "./taskInfo-module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addProjectTask,
   addSectionTask,
 } from "../../redux/Features/Tasks/Actions/taskActions";
+import Loading from "../Loading/Loading";
 function TaskInfo({
   projectId,
   cancelEventHandler,
@@ -20,6 +21,8 @@ function TaskInfo({
   const [description, setDescription] = React.useState("");
   const [dueDate, setDueDate] = React.useState("");
   const [errorMessage, setErrorMessage] = React.useState("");
+
+  const isLoading = useSelector((state) => state.loading.isLoading);
 
   function validate() {
     if (!title) {
@@ -81,6 +84,10 @@ function TaskInfo({
   function updateTask() {
     editEventHandlers.dispatch;
     editEventHandlers.editHandler();
+  }
+
+  if (isLoading) {
+    return <Loading />;
   }
 
   return (

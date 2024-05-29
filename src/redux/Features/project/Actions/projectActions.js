@@ -6,26 +6,56 @@ import {
   getAllprojects,
 } from "../../../../service/projectService";
 
+import { startLoading, endLoading } from "../../Loading/loadingSlice";
+
 export const addProject = createAsyncThunk(
   "project/addProject",
-  (projectObject) => {
-    return createProject(projectObject).then((response) => response.data);
+  async (projectObject, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await createProject(projectObject);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
   }
 );
 
 export const updateProject = createAsyncThunk(
   "project/updateProject",
-  (params) => {
-    return editProject(params.id, params.projectObject).then(
-      (response) => response.data
-    );
+  async (params, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await editProject(params.id, params.projectObject);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
   }
 );
 
-export const deleteProject = createAsyncThunk("project/deleteProject", (id) => {
-  return deleteproject(id).then((response) => response.data);
-});
+export const deleteProject = createAsyncThunk(
+  "project/deleteProject",
+  async (id, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await deleteproject(id);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
+  }
+);
 
-export const getAllProjects = createAsyncThunk("project/allProjects", () => {
-  return getAllprojects().then((response) => response.data);
-});
+export const getAllProjects = createAsyncThunk(
+  "project/allProjects",
+  async (_, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await getAllprojects();
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
+  }
+);

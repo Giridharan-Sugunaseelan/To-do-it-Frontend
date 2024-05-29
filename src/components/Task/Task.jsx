@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./task-module.css";
 import "custom-input-aslam/build/index.css";
 import ActionIconButton from "../Action Button/ActionIconButton";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   updateProjectTask,
   updateProjectTaskStatus,
@@ -10,11 +10,14 @@ import {
   updateSectionTaskStatus,
 } from "../../redux/Features/Tasks/Actions/taskActions";
 import TaskInfo from "../TaskInfo/TaskInfo";
+import Loading from "../Loading/Loading";
 
 function Task({ task, deleteHandler, editEventHandler }) {
   const [currentTask, setCurrentTask] = React.useState(task);
 
   const [isEditing, setIsEditing] = React.useState(false);
+
+  const isLoading = useSelector((state) => state.loading.isLoading);
 
   function handleTitle(e) {
     setCurrentTask((prev) => ({ ...prev, title: e.target.value }));
@@ -106,6 +109,10 @@ function Task({ task, deleteHandler, editEventHandler }) {
       edit={editEventHandler}
     />
   );
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return <>{isEditing ? editTile : tasktile}</>;
 }

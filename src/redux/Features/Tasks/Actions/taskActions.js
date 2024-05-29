@@ -14,88 +14,173 @@ import {
   updatesectionTask,
 } from "../../../../service/taskservice";
 
+import { startLoading, endLoading } from "../../Loading/loadingSlice";
+
 export const updateProjectTaskStatus = createAsyncThunk(
   "task/updateProjectTaskStatus",
-  (id) => {
-    return updateTaskStatus(id).then((response) => response.data);
+  async (id, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await updateTaskStatus(id);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
   }
 );
 
 export const updateSectionTaskStatus = createAsyncThunk(
   "task/updateSectionTaskStatus",
-  (id) => {
-    return updateTaskStatus(id).then((response) => response.data);
+  async (id, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await updateTaskStatus(id);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
   }
 );
 
 export const deleteProjectTask = createAsyncThunk(
   "tasks/deleteProjectTask",
-  (id) => {
-    return deleteprojectTask(id).then((response) => response.data);
+  async (id, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await deleteprojectTask(id);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
   }
 );
 
 export const deleteSectionTask = createAsyncThunk(
   "tasks/deleteSectionTask",
-  (id) => {
-    return deletesectionTask(id).then((response) => response.data);
+  async (id, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await deletesectionTask(id);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
   }
 );
 
-export const deleteTask = createAsyncThunk("tasks/deleteTask", (id) => {
-  return deletetask(id).then((response) => response.data);
-});
+export const deleteTask = createAsyncThunk(
+  "tasks/deleteTask",
+  async (id, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await deletetask(id);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
+  }
+);
 
 export const addProjectTask = createAsyncThunk(
   "tasks/addProjectTask",
-  (taskObject) => {
-    return addprojectTask(taskObject).then((response) => response.data);
+  async (taskObject, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await addprojectTask(taskObject);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
   }
 );
 
 export const addSectionTask = createAsyncThunk(
   "tasks/addSectionTask",
-  (taskObject) => {
-    return addsectionTask(taskObject).then((response) => response.data);
+  async (taskObject, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await addsectionTask(taskObject);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
   }
 );
 
 export const updateProjectTask = createAsyncThunk(
   "tasks/updateProjectTask",
-  (params) => {
-    return updateprojectTask(params.id, params.task).then(
-      (response) => response.data
-    );
+  async (params, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await updateprojectTask(params.id, params.task);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
   }
 );
 
 export const updateSectionTask = createAsyncThunk(
   "tasks/updateSectionTask",
-  (params) => {
-    return updatesectionTask(params.id, params.task).then(
-      (response) => response.data
-    );
+  async (params, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await updatesectionTask(params.id, params.task);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
   }
 );
 
-export const getTodayTasks = createAsyncThunk("tasks/todayTasks", () => {
-  return getTodaytasks().then((response) => response.data);
-});
+export const getTodayTasks = createAsyncThunk(
+  "tasks/todayTasks",
+  async (_, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await getTodaytasks();
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
+  }
+);
 
-export const getUpcomingTasks = createAsyncThunk("task/upcomingTasks", () => {
-  return getUpcomingtasks().then((response) => response.data);
-});
+export const getUpcomingTasks = createAsyncThunk(
+  "task/upcomingTasks",
+  async (_, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await getUpcomingtasks();
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
+  }
+);
 
 export const getSectionTasks = createAsyncThunk(
   "tasks/getSectionTasks",
-  (id) => {
-    return getSectiontasks(id).then((response) => response.data);
+  async (id, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await getSectiontasks(id);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
   }
 );
 
 export const getProjectTasks = createAsyncThunk(
   "tasks/getProjectTasks",
-  (id) => {
-    return getProjecttasks(id).then((response) => response.data);
+  async (id, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await getProjecttasks(id);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
   }
 );

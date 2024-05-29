@@ -27,6 +27,8 @@ import {
   updateProject,
 } from "./Actions/projectActions";
 
+import { startLoading, endLoading } from "../Loading/loadingSlice";
+
 const initialState = {
   loading: false,
   project_id: null,
@@ -37,11 +39,24 @@ const initialState = {
   error: null,
 };
 
+// export const fetchProject = createAsyncThunk(
+//   "project/fetchProject",
+//   async (id) => {
+//     const response = await getProject(id);
+//     return response.data;
+//   }
+// );
+
 export const fetchProject = createAsyncThunk(
   "project/fetchProject",
-  async (id) => {
-    const response = await getProject(id);
-    return response.data;
+  async (id, { dispatch }) => {
+    dispatch(startLoading());
+    try {
+      const response = await getProject(id);
+      return response.data;
+    } finally {
+      dispatch(endLoading());
+    }
   }
 );
 

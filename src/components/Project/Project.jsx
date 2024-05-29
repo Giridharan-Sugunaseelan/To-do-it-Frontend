@@ -17,11 +17,14 @@ import TaskInfo from "../TaskInfo/TaskInfo";
 import AddSection from "../AddSection/AddSection";
 import { getAllProjects } from "../../redux/Features/project/Actions/projectActions";
 import { fetchProfilePicture } from "../../redux/Features/user/Actions/userActions";
+import Loading from "../Loading/Loading";
 
 function Project({ projectTitle }) {
   const dispatch = useDispatch();
 
   const projectState = useSelector((state) => state.project);
+
+  const isLoading = useSelector((state) => state.loading.isLoading);
 
   const { project_id, title } = projectState;
 
@@ -161,6 +164,10 @@ function Project({ projectTitle }) {
       <ul className="tasks">{listTasks(groupedTasks)}</ul>
     </div>
   );
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <>
