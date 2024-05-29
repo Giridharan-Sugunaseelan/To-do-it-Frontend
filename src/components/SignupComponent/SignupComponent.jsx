@@ -58,7 +58,7 @@ function SignupComponent() {
       };
       register(user)
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           navigator("/login");
         })
         .catch((error) => {

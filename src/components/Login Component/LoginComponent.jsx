@@ -32,7 +32,6 @@ function LoginComponent() {
       email: email,
       password: password,
     };
-    console.log(loginObject);
     login(loginObject)
       .then((response) => {
         const token = response.data.tokenType + response.data.token;
@@ -42,7 +41,6 @@ function LoginComponent() {
       })
       .catch((error) => {
         setErrorMessage(error.response.data.message);
-        console.log(error.response.data.message);
       });
   }
 

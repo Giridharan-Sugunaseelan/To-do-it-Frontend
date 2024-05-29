@@ -30,7 +30,9 @@ function ResetPassword() {
         .then((response) => {
           setErrorMessage(response.data);
         })
-        .catch((error) => console.log(error));
+        .catch
+        // (error) => console.log(error)
+        ();
       handleCancel();
     }
   }
@@ -55,7 +57,9 @@ function ResetPassword() {
             setErrorMessage("");
           }
         })
-        .catch((error) => console.log(error.message));
+        .catch
+        // (error) => console.log(error.message)
+        ();
     }
   }
 
