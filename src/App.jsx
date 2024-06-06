@@ -32,9 +32,8 @@ function App() {
   };
 
   useEffect(() => {
-    // Start sending keep-alive requests when component mounts
     sendKeepAliveRequest();
-  }, []); // Run only once on component mount
+  }, []);
 
   return (
     <>
