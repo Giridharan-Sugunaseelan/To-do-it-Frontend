@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Task from "../Task/Task";
 import "./section-module.css";
 import formatDate from "../../util/formatDate";
@@ -27,8 +27,6 @@ function Section({ section }) {
 
   const [addTaskToggle, setAddTaskToggle] = React.useState(false);
 
-  // const [counter, setCounter] = React.useState(0);
-
   const [editSectionToggle, setEditSectionToggle] = React.useState(false);
 
   const [title, setTitle] = React.useState(currentSection?.title);
@@ -39,8 +37,11 @@ function Section({ section }) {
 
   function addTask() {
     setAddTaskToggle((prev) => !prev);
-    // setCounter((prev) => prev + 1);
   }
+
+  React.useEffect(() => {
+    setTitle(currentSection?.title);
+  }, [currentSection?.title]);
 
   async function deleteTaskOfSection(id) {
     await dispatcher(deleteSectionTask(id));
