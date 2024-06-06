@@ -27,7 +27,7 @@ function Section({ section }) {
 
   const [addTaskToggle, setAddTaskToggle] = React.useState(false);
 
-  const [counter, setCounter] = React.useState(0);
+  // const [counter, setCounter] = React.useState(0);
 
   const [editSectionToggle, setEditSectionToggle] = React.useState(false);
 
@@ -39,7 +39,7 @@ function Section({ section }) {
 
   function addTask() {
     setAddTaskToggle((prev) => !prev);
-    setCounter((prev) => prev + 1);
+    // setCounter((prev) => prev + 1);
   }
 
   async function deleteTaskOfSection(id) {

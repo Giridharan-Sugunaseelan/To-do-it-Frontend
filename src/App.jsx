@@ -3,12 +3,11 @@ import LoginComponent from "./components/Login Component/LoginComponent";
 import SignupComponent from "./components/SignupComponent/SignupComponent";
 import TodoContainer from "./components/TodoContainer/TodoContainer";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { isUserLoggedIn } from "./service/authservice";
+import { isUserLoggedIn, keepAlive } from "./service/authservice";
 import Profile from "./components/Profile/Profile";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import ForgotResetPassword from "./components/ResetPassword/ForgotResetPassword";
-import Loading from "./components/Loading/Loading";
-// import ProfilePictureModal from "./components/Profile/ProfilePictureModal/ProfilePictureModal";
+import { useEffect } from "react";
 function App() {
   function AuthenticatedRoutes({ children }) {
     const isAuth = isUserLoggedIn();
@@ -17,12 +16,32 @@ function App() {
     }
     return <Navigate to="/login" />;
   }
+
+  const sendKeepAliveRequest = () => {
+    keepAlive("/auth/alive")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to keep the service alive");
+        }
+        setTimeout(sendKeepAliveRequest, 180000);
+      })
+      .catch((error) => {
+        console.error("Error keeping service alive:", error.message);
+        setTimeout(sendKeepAliveRequest, 180000);
+      });
+  };
+
+  useEffect(() => {
+    // Start sending keep-alive requests when component mounts
+    sendKeepAliveRequest();
+  }, []); // Run only once on component mount
+
   return (
     <>
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" Component={LoginComponent} />
-        <Route path="/signup" Component={SignupComponent} />
+        <Route path="/login" element={<LoginComponent />} />
+        <Route path="/signup" element={<SignupComponent />} />
         <Route
           path="/:projectTitle"
           element={
@@ -39,10 +58,9 @@ function App() {
             </AuthenticatedRoutes>
           }
         />
-        <Route path="/forgotPassword" Component={ForgotPassword} />
-        <Route path="/resetPassword" Component={ForgotResetPassword} />
+        <Route path="/forgotPassword" element={<ForgotPassword />} />
+        <Route path="/resetPassword" element={<ForgotResetPassword />} />
       </Routes>
-      {/* <Loading /> */}
     </>
   );
 }

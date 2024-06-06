@@ -10,6 +10,10 @@ export function register(registerObject) {
   return axios.post(`${BASE_URL}/signup`, registerObject);
 }
 
+export const keepAlive = () => {
+  return axios.get(`${BASE_URL}/alive`);
+};
+
 export const setToken = (token) => localStorage.setItem("token", token);
 
 export const getToken = () => localStorage.getItem("token");
