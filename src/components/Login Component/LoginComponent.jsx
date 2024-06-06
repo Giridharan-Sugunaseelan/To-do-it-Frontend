@@ -8,6 +8,8 @@ function LoginComponent() {
   const [password, setPassword] = React.useState("");
   const [errorMessage, setErrorMessage] = React.useState("");
 
+  const [isGuest, setIsGuest] = React.useState(false);
+
   const navigator = useNavigate();
 
   function handleSubmit(e) {
@@ -44,6 +46,25 @@ function LoginComponent() {
       });
   }
 
+  function guestLogin() {
+    setIsGuest((prev) => !prev);
+    const loginObject = {
+      email: "guest@gmail.com",
+      password: "guestuser",
+    };
+    setErrorMessage("");
+    login(loginObject)
+      .then((response) => {
+        const token = response.data.tokenType + response.data.token;
+        saveLoggedInUser(email);
+        setToken(token);
+        navigator("/today");
+      })
+      .catch((error) => {
+        setErrorMessage(error.response.data.message);
+      });
+  }
+
   return (
     <>
       <div className="loginContainer">
@@ -68,10 +89,15 @@ function LoginComponent() {
             <a className="forgotPassword" href="/forgotPassword">
               Forgot Password
             </a>
-            {errorMessage && <p className="errorMessage">{errorMessage}</p>}
+            {!isGuest && errorMessage && (
+              <p className="errorMessage">{errorMessage}</p>
+            )}
             <div className="loginButtonContainer">
               <button type="submit" className="loginButton">
                 Log in
+              </button>
+              <button className="guestLogin" onClick={guestLogin}>
+                Continue as Guest
               </button>
             </div>
           </form>

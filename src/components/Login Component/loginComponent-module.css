@@ -18,6 +18,12 @@
     justify-content: center;
 }
 
+.guestLogin {
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
 .logo {
     display: flex;
     align-items: center;
@@ -51,6 +57,7 @@
 .loginButtonContainer .loginButton {
     width: 100%;
     background-color: #DE4D4B;
+    border-radius: 20px;
     margin-bottom: 10px;
 }
 
