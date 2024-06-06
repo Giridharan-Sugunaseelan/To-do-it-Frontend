@@ -8,6 +8,12 @@ const PROJECT_TASK_BASE_URL =
 const SECTION_TASK_BASE_URL =
   "https://to-do-it-i8lc.onrender.com/todoapp/sectionTask";
 
+// const TASK_BASE_URL = "https://localhost:8080/todoapp/task";
+
+// const PROJECT_TASK_BASE_URL = "https://localhost:8080/todoapp/projectTask";
+
+// const SECTION_TASK_BASE_URL = "https://localhost:8080/todoapp/sectionTask";
+
 export function updateTaskStatus(id) {
   return axios.put(`${TASK_BASE_URL}/${id}`);
 }

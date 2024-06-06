@@ -82,7 +82,7 @@ function TaskInfo({
   }
 
   function updateTask() {
-    editEventHandlers.dispatch;
+    editEventHandlers.dispatch();
     editEventHandlers.editHandler();
   }
 

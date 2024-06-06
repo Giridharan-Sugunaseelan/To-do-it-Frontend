@@ -13,7 +13,32 @@ import TaskInfo from "../TaskInfo/TaskInfo";
 import Loading from "../Loading/Loading";
 
 function Task({ task, deleteHandler, editEventHandler }) {
-  const [currentTask, setCurrentTask] = React.useState(task);
+  const tasks = useSelector((state) => state.project.tasks);
+
+  const sections = useSelector((state) => state.project.sections);
+
+  let presentTask;
+
+  useEffect(() => {
+    let presentTask;
+    if (!task.section_id) {
+      presentTask = tasks?.find((ttask) => ttask.task_id === task.task_id);
+    } else {
+      sections?.forEach((section) => {
+        if (section.section_id === task.section_id) {
+          const foundTask = section.tasks.find(
+            (section_task) => section_task.task_id === task.task_id
+          );
+          if (foundTask) {
+            presentTask = foundTask;
+          }
+        }
+      });
+    }
+    setCurrentTask(presentTask);
+  }, [task, tasks, sections]);
+
+  const [currentTask, setCurrentTask] = React.useState(presentTask);
 
   const [isEditing, setIsEditing] = React.useState(false);
 
@@ -33,14 +58,14 @@ function Task({ task, deleteHandler, editEventHandler }) {
 
   function dispatchUpdate() {
     dispatcher(
-      updateProjectTask({ id: currentTask.task_id, task: currentTask })
+      updateProjectTask({ id: currentTask?.task_id, task: currentTask })
     );
     handleEdit();
   }
 
   function dispatchSectionUpdate() {
     dispatcher(
-      updateSectionTask({ id: currentTask.task_id, task: currentTask })
+      updateSectionTask({ id: currentTask?.task_id, task: currentTask })
     );
     handleEdit();
   }
@@ -57,11 +82,11 @@ function Task({ task, deleteHandler, editEventHandler }) {
 
   function handleCompleted() {
     if (task.section_id) {
-      dispatcher(updateSectionTaskStatus(task.task_id));
+      dispatcher(updateSectionTaskStatus(task?.task_id));
     } else {
-      dispatcher(updateProjectTaskStatus(task.task_id));
+      dispatcher(updateProjectTaskStatus(task?.task_id));
     }
-    setCurrentTask((prev) => ({ ...prev, completed: !prev.completed }));
+    setCurrentTask((prev) => ({ ...prev, completed: !prev?.completed }));
   }
 
   function handleEdit() {
@@ -69,17 +94,17 @@ function Task({ task, deleteHandler, editEventHandler }) {
   }
 
   function handleDelete() {
-    deleteHandler(currentTask.task_id);
+    deleteHandler(currentTask?.task_id);
   }
 
-  let completed = currentTask.completed ? "completed" : "";
+  let completed = currentTask?.completed ? "completed" : "";
 
   const tasktile = (
     <div className={`taskContainer`}>
       <div className="tickbox">
         <div className={`taskContent ${completed}`}>
-          <h4 className="taskTitle">{currentTask.title}</h4>
-          <h5 className="taskDescription">{currentTask.description}</h5>
+          <h4 className="taskTitle">{currentTask?.title}</h4>
+          <h5 className="taskDescription">{currentTask?.description}</h5>
         </div>
       </div>
       <div className="taskButtonContainer">
