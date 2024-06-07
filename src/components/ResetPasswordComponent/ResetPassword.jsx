@@ -7,22 +7,26 @@ function ResetPassword() {
   const [newPassword, setNewPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [errorMessage, setErrorMessage] = React.useState("");
+  const [isCurrentPasswordValid, setIsCurrentPasswordValid] =
+    React.useState(false);
 
   function validate() {
     if (newPassword.length < 8) {
       setErrorMessage("Password should have atleast of 8 characters.");
+      return false;
     } else if (newPassword !== confirmPassword) {
       setErrorMessage("New Password and Confirm Password should match.");
+      return false;
     } else {
       setErrorMessage("");
-      return;
+      return true;
     }
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    validate();
-    if (!errorMessage) {
+
+    if (validate()) {
       let changePassword = {
         password: newPassword,
       };
@@ -45,6 +49,7 @@ function ResetPassword() {
   }
 
   function checkCurrentPassword(currentPassword) {
+    setIsCurrentPasswordValid((prev) => !prev);
     if (currentPassword) {
       const pass = {
         password: currentPassword,
@@ -53,6 +58,9 @@ function ResetPassword() {
         .then((response) => {
           if (!response.data) {
             setErrorMessage("Current Password is incorrect!!!");
+            if (isCurrentPasswordValid) {
+              setIsCurrentPasswordValid((prev) => !prev);
+            }
           } else {
             setErrorMessage("");
           }
