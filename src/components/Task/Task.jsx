@@ -12,7 +12,7 @@ import {
 import TaskInfo from "../TaskInfo/TaskInfo";
 import Loading from "../Loading/Loading";
 
-function Task({ task, deleteHandler, editEventHandler }) {
+function Task({ task, projectTitle, deleteHandler, editEventHandler }) {
   useEffect(() => setCurrentTask(task), [task]);
 
   const [currentTask, setCurrentTask] = React.useState(task);
@@ -52,13 +52,22 @@ function Task({ task, deleteHandler, editEventHandler }) {
     description: handleDescription,
     dueDate: handleDueDate,
     editHandler: handleEdit,
-    dispatch: currentTask?.section_id ? dispatchSectionUpdate : dispatchUpdate,
+    dispatch:
+      currentTask?.section_id &&
+      projectTitle != "today" &&
+      projectTitle != "upcoming"
+        ? dispatchSectionUpdate
+        : dispatchUpdate,
   };
 
   const dispatcher = useDispatch();
 
   async function handleCompleted() {
-    if (task.section_id) {
+    if (
+      task.section_id &&
+      projectTitle != "today" &&
+      projectTitle != "upcoming"
+    ) {
       console.log("from handle completed method");
       await dispatcher(
         updateSectionTaskStatus({

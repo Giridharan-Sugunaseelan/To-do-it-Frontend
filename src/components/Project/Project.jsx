@@ -16,7 +16,7 @@ import {
 import TaskInfo from "../TaskInfo/TaskInfo";
 import AddSection from "../AddSection/AddSection";
 import { getAllProjects } from "../../redux/Features/project/Actions/projectActions";
-import { fetchProfilePicture } from "../../redux/Features/user/Actions/userActions";
+// import { fetchProfilePicture } from "../../redux/Features/user/Actions/userActions";
 import Loading from "../Loading/Loading";
 
 function Project({ projectTitle }) {
@@ -102,6 +102,7 @@ function Project({ projectTitle }) {
                 <li key={task.task_id}>
                   <Task
                     task={task}
+                    projectTitle={projectTitle}
                     deleteHandler={
                       projectTitle === "today" || projectTitle === "upcoming"
                         ? deletetask

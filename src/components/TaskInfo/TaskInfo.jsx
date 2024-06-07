@@ -14,6 +14,7 @@ function TaskInfo({
   editEventHandlers,
   sectionId,
   edit,
+  projectTitle,
 }) {
   const dispatcher = useDispatch();
 
@@ -23,6 +24,8 @@ function TaskInfo({
   const [errorMessage, setErrorMessage] = React.useState("");
 
   const isLoading = useSelector((state) => state.loading.isLoading);
+
+  console.log("From Taskinfo", projectId);
 
   function validate() {
     if (!title) {
