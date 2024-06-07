@@ -62,6 +62,13 @@ ul {
     font-size: 22px;
 }
 
+.noTasksMessage {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #666;
+}
+
 @media (max-width: 1220px) {
     .projectTitle>h1 {
         font-size: 25px;

@@ -162,7 +162,11 @@ function Project({ projectTitle }) {
 
   const today = (
     <div className="projectContainer">
-      <ul className="tasks">{listTasks(groupedTasks)}</ul>
+      {Object.keys(groupedTasks).length === 0 ? (
+        <div className="noTasksMessage">There are no tasks</div>
+      ) : (
+        <ul className="tasks">{listTasks(groupedTasks)}</ul>
+      )}
     </div>
   );
 
