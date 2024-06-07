@@ -39,14 +39,6 @@ const initialState = {
   error: null,
 };
 
-// export const fetchProject = createAsyncThunk(
-//   "project/fetchProject",
-//   async (id) => {
-//     const response = await getProject(id);
-//     return response.data;
-//   }
-// );
-
 export const fetchProject = createAsyncThunk(
   "project/fetchProject",
   async (id, { dispatch }) => {

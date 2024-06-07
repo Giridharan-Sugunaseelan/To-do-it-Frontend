@@ -68,7 +68,6 @@ function Task({ task, projectTitle, deleteHandler, editEventHandler }) {
       projectTitle != "today" &&
       projectTitle != "upcoming"
     ) {
-      console.log("from handle completed method");
       await dispatcher(
         updateSectionTaskStatus({
           task_id: task.task_id,
@@ -76,7 +75,6 @@ function Task({ task, projectTitle, deleteHandler, editEventHandler }) {
         })
       );
     } else {
-      console.log("from handle completed method");
       await dispatcher(updateProjectTaskStatus(task?.task_id));
     }
     setCurrentTask((prev) => ({ ...prev, completed: !prev.completed }));
