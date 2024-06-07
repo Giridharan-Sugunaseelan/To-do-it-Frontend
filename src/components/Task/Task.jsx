@@ -13,30 +13,7 @@ import TaskInfo from "../TaskInfo/TaskInfo";
 import Loading from "../Loading/Loading";
 
 function Task({ task, deleteHandler, editEventHandler }) {
-  // const tasks = useSelector((state) => state.project.tasks);
-
-  // const sections = useSelector((state) => state.project.sections);
-
-  // let presentTask;
-
-  // useEffect(() => {
-  //   let presentTask;
-  //   if (!task.section_id) {
-  //     presentTask = tasks?.find((ttask) => ttask.task_id === task.task_id);
-  //   } else {
-  //     sections?.forEach((section) => {
-  //       if (section.section_id === task.section_id) {
-  //         const foundTask = section.tasks.find(
-  //           (section_task) => section_task.task_id === task.task_id
-  //         );
-  //         if (foundTask) {
-  //           presentTask = foundTask;
-  //         }
-  //       }
-  //     });
-  //   }
-  //   setCurrentTask(presentTask);
-  // }, [task, tasks, sections]);
+  useEffect(() => setCurrentTask(task), [task]);
 
   const [currentTask, setCurrentTask] = React.useState(task);
 

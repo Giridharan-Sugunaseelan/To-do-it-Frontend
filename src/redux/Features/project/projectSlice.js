@@ -110,20 +110,22 @@ const projectSlice = createSlice({
     });
     builder.addCase(updateSectionTaskStatus.fulfilled, (state, action) => {
       state.loading = false;
+      console.log("Payload of sectionTaskCompletion:", action.payload);
 
-      console.log(
-        "action.payload of sectionTaskCompletion:",
-        action.payload.section_id
-      );
-
-      state.sections = state.sections.map((section) => {
+      // Loop through sections to find the one containing the updated task
+      for (const section of state.sections) {
         if (section.section_id === action.payload.section_id) {
-          section.tasks = section.tasks.map((task) =>
-            task.task_id === action.payload.task_id ? action.payload : task
-          );
+          // Loop through tasks in the section to find the updated task
+          for (const task of section.tasks) {
+            if (task.task_id === action.payload.task_id) {
+              // Update the task
+              Object.assign(task, action.payload);
+              break; // Stop looping once the task is found and updated
+            }
+          }
+          break; // Stop looping once the section is found
         }
-        return section;
-      });
+      }
 
       state.error = null;
     });
