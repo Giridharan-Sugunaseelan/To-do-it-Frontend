@@ -13,32 +13,32 @@ import TaskInfo from "../TaskInfo/TaskInfo";
 import Loading from "../Loading/Loading";
 
 function Task({ task, deleteHandler, editEventHandler }) {
-  const tasks = useSelector((state) => state.project.tasks);
+  // const tasks = useSelector((state) => state.project.tasks);
 
-  const sections = useSelector((state) => state.project.sections);
+  // const sections = useSelector((state) => state.project.sections);
 
-  let presentTask;
+  // let presentTask;
 
-  useEffect(() => {
-    let presentTask;
-    if (!task.section_id) {
-      presentTask = tasks?.find((ttask) => ttask.task_id === task.task_id);
-    } else {
-      sections?.forEach((section) => {
-        if (section.section_id === task.section_id) {
-          const foundTask = section.tasks.find(
-            (section_task) => section_task.task_id === task.task_id
-          );
-          if (foundTask) {
-            presentTask = foundTask;
-          }
-        }
-      });
-    }
-    setCurrentTask(presentTask);
-  }, [task, tasks, sections]);
+  // useEffect(() => {
+  //   let presentTask;
+  //   if (!task.section_id) {
+  //     presentTask = tasks?.find((ttask) => ttask.task_id === task.task_id);
+  //   } else {
+  //     sections?.forEach((section) => {
+  //       if (section.section_id === task.section_id) {
+  //         const foundTask = section.tasks.find(
+  //           (section_task) => section_task.task_id === task.task_id
+  //         );
+  //         if (foundTask) {
+  //           presentTask = foundTask;
+  //         }
+  //       }
+  //     });
+  //   }
+  //   setCurrentTask(presentTask);
+  // }, [task, tasks, sections]);
 
-  const [currentTask, setCurrentTask] = React.useState(presentTask);
+  const [currentTask, setCurrentTask] = React.useState(task);
 
   const [isEditing, setIsEditing] = React.useState(false);
 
@@ -80,13 +80,20 @@ function Task({ task, deleteHandler, editEventHandler }) {
 
   const dispatcher = useDispatch();
 
-  function handleCompleted() {
+  async function handleCompleted() {
     if (task.section_id) {
-      dispatcher(updateSectionTaskStatus(task?.task_id));
+      console.log("from handle completed method");
+      await dispatcher(
+        updateSectionTaskStatus({
+          task_id: task.task_id,
+          section_id: task.section_id,
+        })
+      );
     } else {
-      dispatcher(updateProjectTaskStatus(task?.task_id));
+      console.log("from handle completed method");
+      await dispatcher(updateProjectTaskStatus(task?.task_id));
     }
-    setCurrentTask((prev) => ({ ...prev, completed: !prev?.completed }));
+    setCurrentTask((prev) => ({ ...prev, completed: !prev.completed }));
   }
 
   function handleEdit() {
@@ -97,7 +104,7 @@ function Task({ task, deleteHandler, editEventHandler }) {
     deleteHandler(currentTask?.task_id);
   }
 
-  let completed = currentTask?.completed ? "completed" : "";
+  let completed = currentTask.completed ? "completed" : "";
 
   const tasktile = (
     <div className={`taskContainer`}>

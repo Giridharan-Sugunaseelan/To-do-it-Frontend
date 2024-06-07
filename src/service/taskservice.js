@@ -18,6 +18,12 @@ export function updateTaskStatus(id) {
   return axios.put(`${TASK_BASE_URL}/${id}`);
 }
 
+export function updatesectionTaskStatus(section_id, task_id) {
+  return axios.put(
+    `${SECTION_TASK_BASE_URL}?taskId=${task_id}&sectionId=${section_id}`
+  );
+}
+
 export function deleteprojectTask(id) {
   return axios.delete(`${PROJECT_TASK_BASE_URL}/${id}`);
 }

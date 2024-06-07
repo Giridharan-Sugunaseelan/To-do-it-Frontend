@@ -12,6 +12,7 @@ import {
   updateTaskStatus,
   updateprojectTask,
   updatesectionTask,
+  updatesectionTaskStatus,
 } from "../../../../service/taskservice";
 
 import { startLoading, endLoading } from "../../Loading/loadingSlice";
@@ -31,10 +32,10 @@ export const updateProjectTaskStatus = createAsyncThunk(
 
 export const updateSectionTaskStatus = createAsyncThunk(
   "task/updateSectionTaskStatus",
-  async (id, { dispatch }) => {
+  async ({ task_id, section_id }, { dispatch }) => {
     dispatch(startLoading());
     try {
-      const response = await updateTaskStatus(id);
+      const response = await updatesectionTaskStatus(section_id, task_id);
       return response.data;
     } finally {
       dispatch(endLoading());

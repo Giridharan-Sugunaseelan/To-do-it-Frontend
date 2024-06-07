@@ -91,9 +91,14 @@ const projectSlice = createSlice({
     });
     builder.addCase(updateProjectTaskStatus.fulfilled, (state, action) => {
       state.loading = false;
-      state.tasks = state.tasks.map((task) =>
-        task.task_id === action.payload.task_id ? action.payload : task
+      const index = state.tasks.findIndex(
+        (task) => task.task_id === action.payload.task_id
       );
+      if (index !== -1) {
+        state.tasks[index] = action.payload;
+      }
+      console.log("completed task:", state.tasks[index]);
+      state.error = null;
     });
     builder.addCase(updateProjectTaskStatus.rejected, (state, action) => {
       state.loading = false;
@@ -105,12 +110,21 @@ const projectSlice = createSlice({
     });
     builder.addCase(updateSectionTaskStatus.fulfilled, (state, action) => {
       state.loading = false;
-      state.sections = state.sections.map((section) => ({
-        ...section,
-        tasks: section.tasks.map((task) =>
-          task.task_id === action.payload.task_id ? action.payload : task
-        ),
-      }));
+
+      console.log(
+        "action.payload of sectionTaskCompletion:",
+        action.payload.section_id
+      );
+
+      state.sections = state.sections.map((section) => {
+        if (section.section_id === action.payload.section_id) {
+          section.tasks = section.tasks.map((task) =>
+            task.task_id === action.payload.task_id ? action.payload : task
+          );
+        }
+        return section;
+      });
+
       state.error = null;
     });
 

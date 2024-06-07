@@ -71,7 +71,7 @@ function Project({ projectTitle }) {
       dispatch(getTodayTasks());
     }
     dispatch(getAllProjects());
-    dispatch(fetchProfilePicture());
+    // dispatch(fetchProfilePicture());
   }, []);
 
   async function deleteTaskOfProject(id) {
